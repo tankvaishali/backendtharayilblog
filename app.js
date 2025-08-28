@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import MongoDB from './MongoDB/MongoConnection.js';
 import User from './MongoDB/MongoSchema.js';
+import GetYojana from './GetApi/GetYojana.js';
+import PostYojana from './PostApi/PostYojana.js';
 
 const app = express();
 app.use(cors());
@@ -10,6 +12,9 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // Connect to MongoDB
 MongoDB();
 
+
+app.use('/yojana', GetYojana)
+app.use('/yojana', PostYojana)
 /**
  * POST: Create a new post
  */

@@ -4,6 +4,8 @@ import MongoDB from './MongoDB/MongoConnection.js';
 import User from './MongoDB/MongoSchema.js';
 import GetYojana from './GetApi/GetYojana.js';
 import PostYojana from './PostApi/PostYojana.js';
+import Getschemeyojana from './GetApi/GetSchemeyojana.js';
+import Postschemeyojana from './PostApi/Postschemeyojana.js';
 
 const app = express();
 app.use(cors());
@@ -15,6 +17,9 @@ MongoDB();
 
 app.use('/yojana', GetYojana)
 app.use('/yojana', PostYojana)
+
+app.use('/schemeyojana', Getschemeyojana)
+app.use('/schemeyojana', Postschemeyojana)
 /**
  * POST: Create a new post
  */
